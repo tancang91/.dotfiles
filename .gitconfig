@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+	name = cangnguyen
+	email = tancang91@gmail.com
+[alias]
+    lol = log --graph --oneline --decorate
+[pager]
+	branch = false
+	lol = false
