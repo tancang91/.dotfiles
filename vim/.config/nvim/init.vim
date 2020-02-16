@@ -4,6 +4,8 @@ call plug#begin()
     Plug 'scrooloose/nerdtree'
     " Easy comment source file
     Plug 'scrooloose/nerdcommenter'
+    " NERDTree showing git status flags.
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
     Plug 'itchyny/lightline.vim'
     " Add, edit, delete surround (bracket ....)
@@ -28,6 +30,7 @@ call plug#begin()
 call plug#end()
 
 set encoding=UTF-8
+" Set leader from "\" to ","
 let mapleader=","
 
 set number
@@ -60,7 +63,7 @@ nnoremap <F2> :bnext<return><esc>
 " Search exact match
 nnoremap <leader>/ /\<\><left><left>
 " NerdTree shortcut
-nmap <F6> :NERDTreeToggle<cr>
+nmap <C-n> :NERDTreeToggle<cr>
 " Search exactmatch a word under cursor and count
 nnoremap <expr>* ':%s/\<'.expand('<cword>').'\>//gn<CR>'
 " Move line up-down
@@ -70,11 +73,16 @@ nnoremap <silent> <A-DOWN> :m+1<CR>
 noremap <silent><leader>d :put=strftime('%b %d, %Y')<CR>
 tnoremap <ESC> <C-\><C-n>
 
+
+
 " -- Custom command
 " close all buffer but working one
 command! -nargs=0 BufOnly silent! execute "%bd|e#|bd#"
 
-" Set leader from "\" to ","
+" Auto open nerdtree when startup
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 let g:lightline = {
             \ 'colorscheme': 'simpleblack',       
             \ }
