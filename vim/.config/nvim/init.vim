@@ -1,6 +1,10 @@
+set nocompatible
+filetype plugin on
+syntax on
+
 call plug#begin()
 " -------------- General setup -----------------------
-    Plug 'tmux-plugins/vim-tmux-focus-events'
+    "Plug 'tmux-plugins/vim-tmux-focus-events'
     Plug 'scrooloose/nerdtree'
     " Easy comment source file
     Plug 'scrooloose/nerdcommenter'
@@ -20,6 +24,8 @@ call plug#begin()
     Plug 'honza/vim-snippets'"
     " Git enhanced
     Plug 'airblade/vim-gitgutter'
+    " Change date quickly
+    Plug 'tpope/vim-speeddating'
 
     " Metric, insight, time tracking
     Plug 'wakatime/vim-wakatime'
@@ -27,6 +33,10 @@ call plug#begin()
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Vim Theme
     Plug 'morhetz/gruvbox'
+    " TODO: consider remove Org-mode
+    Plug 'jceb/vim-orgmode'
+    " Notetaking
+    Plug 'vimwiki/vimwiki'
 call plug#end()
 
 set encoding=UTF-8
@@ -55,27 +65,37 @@ colorscheme gruvbox
 :autocmd InsertEnter * set cul 
 :autocmd InsertLeave * set nocul
 
-" -- Key mapping
+" ----- Key-mapping -----
+
+" -- General
 nnoremap <esc> :noh<return><esc>
 " Jump back and forth buffer
 nnoremap <F1> :bprevious<return><esc>
 nnoremap <F2> :bnext<return><esc>
 " Search exact match
 nnoremap <leader>/ /\<\><left><left>
-" NerdTree shortcut
-nmap <C-n> :NERDTreeToggle<cr>
 " Search exactmatch a word under cursor and count
 nnoremap <expr>* ':%s/\<'.expand('<cword>').'\>//gn<CR>'
 " Move line up-down
 nnoremap <silent> <A-UP> :m-2<CR>
 nnoremap <silent> <A-DOWN> :m+1<CR>
-" Insert date
-noremap <silent><leader>d :put=strftime('%b %d, %Y')<CR>
+" Escape terminal mode
 tnoremap <ESC> <C-\><C-n>
+" -- /General
+
+" -- NerdTree
+nmap <C-n> :NERDTreeToggle<cr>
+" -- /NerdTree
+
+" -- Vimwiki
+nmap <Leader>wq <Plug>VimwikiVSplitLink
+" -- /Vimwiki
+
+"  ----- /Key-mapping
 
 
 
-" -- Custom command
+" ----- Command section
 " close all buffer but working one
 command! -nargs=0 BufOnly silent! execute "%bd|e#|bd#"
 
@@ -88,6 +108,12 @@ let g:lightline = {
             \ }
 " Adjust yank highligh duration (vim-highlightedyank plugin)
 let g:highlightedyank_highlight_duration = 200
+
+" -- Vimwiki
+let g:vimwiki_folding = 'list'
+" -- Vimwiki
+
+" ----- /Command
 
 
 " ------ Cocvim setting -----------------------------
