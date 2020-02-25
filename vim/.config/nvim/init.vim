@@ -33,8 +33,6 @@ call plug#begin()
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Vim Theme
     Plug 'morhetz/gruvbox'
-    " TODO: consider remove Org-mode
-    Plug 'jceb/vim-orgmode'
     " Notetaking
     Plug 'vimwiki/vimwiki'
 call plug#end()
@@ -69,9 +67,8 @@ colorscheme gruvbox
 
 " -- General
 nnoremap <esc> :noh<return><esc>
-" Jump back and forth buffer
-nnoremap <F1> :bprevious<return><esc>
-nnoremap <F2> :bnext<return><esc>
+" Copy clipboard in visual mode
+vnoremap <F5> "+y<CR>
 " Search exact match
 nnoremap <leader>/ /\<\><left><left>
 " Search exactmatch a word under cursor and count
@@ -107,10 +104,10 @@ let g:lightline = {
             \ 'colorscheme': 'simpleblack',       
             \ }
 " Adjust yank highligh duration (vim-highlightedyank plugin)
-let g:highlightedyank_highlight_duration = 200
+let g:highlightedyank_highlight_duration = 120
 
 " -- Vimwiki
-let g:vimwiki_folding = 'list'
+let g:vimwiki_folding = 'syntax'
 " -- Vimwiki
 
 " ----- /Command
