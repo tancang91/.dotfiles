@@ -1,0 +1,14 @@
+= Memory mapping =
+_Syntax_
+{{{c
+
+void *
+mmap(void *addr, size_t len, int prot, int flags, int fd, off_t offset);
+
+}}}
+      
+_Use cases_
+    - memort mapping
+    - open file
+    - IPC
+    - Control memory protection

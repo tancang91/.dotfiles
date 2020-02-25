@@ -1,0 +1,11 @@
+= Knowledge =
+
+== Computer Science ==
+- [[os|Operating system]]
+
+== Programming ==
+- [[pl|Programming language]]
+- [[leetcode|Leetcode]]
+
+= Projects =
+* TODO: Flaskapp

@@ -78,6 +78,9 @@ nnoremap <silent> <A-UP> :m-2<CR>
 nnoremap <silent> <A-DOWN> :m+1<CR>
 " Escape terminal mode
 tnoremap <ESC> <C-\><C-n>
+" Highlight
+syntax keyword Todo contained DONE
+highlight Todo ctermbg=DarkRed 
 " -- /General
 
 " -- NerdTree
@@ -89,8 +92,6 @@ nmap <Leader>wq <Plug>VimwikiVSplitLink
 " -- /Vimwiki
 
 "  ----- /Key-mapping
-
-
 
 " ----- Command section
 " close all buffer but working one
@@ -108,10 +109,14 @@ let g:highlightedyank_highlight_duration = 120
 
 " -- Vimwiki
 let g:vimwiki_folding = 'syntax'
-" -- Vimwiki
 
+let wiki_1 = {}
+let wiki_1.path = '~/vimwiki/personal/'
+let wiki_1.html_template = '~/vimwiki/personal_html/template.tpl'
+
+let g:vimwiki_list = [wiki_1]
+" -- /Vimwiki
 " ----- /Command
-
 
 " ------ Cocvim setting -----------------------------
 " if hidden is not set, TextEdit might fail.
