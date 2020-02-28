@@ -1,0 +1,16 @@
+= Solved =
+
+%date [Thu, 2020-Feb-27 22:58]
+0006 ZigZag Conversion
+    - Leetcode link: [[https://leetcode.com/problems/zigzag-conversion/|here]]
+    - Solution link: [[file:~/Code/code-practice/leetcode/6_zigzag_conversion.py|here]]
+
+%date [Wed, 2020-Feb-26 00:00]
+0008 String to Integer atoi
+    - Leetcode link: [[https://leetcode.com/problems/string-to-integer-atoi/|here]]
+    - Solution link: [[file:~/Code/code-practice/leetcode/8_string_to_int.py|here]]
+
+%date [Thu, 2020-Feb-27 18:47]
+0013 Roman to integer
+    - Leetcode link: [[https://leetcode.com/problems/roman-to-integer/|here]]
+    - Solution link: [[file:~/Code/code-practice/leetcode/13_roman_to_integer.py|here]]

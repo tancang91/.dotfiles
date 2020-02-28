@@ -67,6 +67,8 @@ colorscheme gruvbox
 
 " -- General
 nnoremap <esc> :noh<return><esc>
+"  Insert date
+:nnoremap <silent> <F4> "=strftime("%a, %Y-%b-%d %H:%M")<CR>P
 " Copy clipboard in visual mode
 vnoremap <F5> "+y<CR>
 " Search exact match
@@ -79,8 +81,9 @@ nnoremap <silent> <A-DOWN> :m+1<CR>
 " Escape terminal mode
 tnoremap <ESC> <C-\><C-n>
 " Highlight
-syntax keyword Todo contained DONE
 highlight Todo ctermbg=DarkRed 
+syntax keyword myTodo contained DONE XXX
+highlight def link myTodo Todo
 " -- /General
 
 " -- NerdTree
