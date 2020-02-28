@@ -1,0 +1,8 @@
+= String =
+== Substring search ==
+    * Brute force search
+    * KMP
+
+== Regular expression ==
+
+

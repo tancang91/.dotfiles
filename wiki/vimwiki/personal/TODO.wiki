@@ -1,0 +1,33 @@
+= Ongoing =
+
+%date @created Fri, 2020-Feb-28 18:37
+* _Goal 1_: 5 problems on leetcode/hackerrank each week.
+    [[/leetcode|Solved problems]]
+    %% Subject:  String and dynamics programming.  
+    %% Schedule: Flexiale but prefered doing practice in morning (around 9:00).
+    %% Difficulty: Medium and hard. 
+    
+-------------------------------------------------------------------------------
+%date @created Fri, 2020-Feb-28 18:37
+* _Goal 2_: Enhance computer science knowledge.
+    %% Subject: String related algorithm  
+                [[/algorithm|Substring search]]
+                    - [ ] TODO Brute force search. 
+                    - [ ] TODO Knuth-Moris-Pratt algorithm.
+                    - [ ] TODO Boyer-Moore algorithm.
+                    - [ ] TODO Rabin-Karp fingering search.
+    %% Schedule: Prefered after lunch (around 13:00) 
+    %% Resource: Algorithm book chaper 5
+    %% Method:   Read and do exericise at the end of chapter.
+    
+-------------------------------------------------------------------------------
+%date @created Fri, 2020-Feb-28 20:12 
+* _Goal 3_: Chat applications
+    %% Schedule: Around 19:00
+    %% Goal: Fully functioning applications
+    
+-------------------------------------------------------------------------------
+%date @created Fri, 2020-Feb-28 20:12 
+* _Goal 4_: Learn vimscript
+    %% Very low priority
+    %% Goal: Create custom syntax highlight
