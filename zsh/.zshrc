@@ -98,9 +98,8 @@ export PGDATA="/usr/local/var/postgres"
 ### Alias land
 alias zshconf="nvim ~/.zshrc"
 alias vimconf="nvim ~/.config/nvim/init.vim"
-alias plan="nvim ~/Code/plans/plan.org"
 
-alias gh="~/Code/github.com/"
+alias gh="~/Code/github.com/tancang91"
 alias gen="~/Code/ultis/gen.py"
 
 

@@ -5,6 +5,33 @@
 python3 -m pip list ---outdated -format=freeze  | sed 's/=.*//g' | xargs -n1 python3 -m pip install -U
 }}}
 
+== Database connection ==
+
+%% Every sql, except sqlite
+{{{python
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+DIALECT = 'postgresql'
+USER = ''
+PASSWORD = ''
+HOST = 'localhost'
+DATABASE = ''
+PORT = 5432
+
+# dialect+driver://username:password@host:port/database
+con_str = f'{DIALECT}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}'
+
+engine = create_engine(con_str, convert_unicode=True)
+db_session = scoped_session(sessionmaker(autocommit=False),
+                            autoflush=False,
+                            bind=engine)
+
+Base = declarative_base()
+Base.query = db_session.query_property()
+  }}}
+
 == Logging ==
 [[https://docs.python.org/3/howto/logging.html|Document]]
 
@@ -26,7 +53,6 @@ python3 -m pip list ---outdated -format=freeze  | sed 's/=.*//g' | xargs -n1 pyt
 # &x  Locale’s appropriate date representation.    
 # &X  Locale’s appropriate time representation.    
 # &y  Year without century as a decimal number [00,99].    
-
 logging.basicConfig(filename='file.log'
                     format='[%(asctime)s] %(message)s',
                     datefmt='%Y-%b-%d %H:%M:%S',
@@ -39,11 +65,17 @@ logging.critical('This is a critical message')
     
 }}}
 
+== Asyncio ==
+[[https://docs.python.org/3/library/asyncio.html|Document]]
+
+{{{python
+import asyncio
+  }}}
+  
+There are 3 main types of awaitable objects: _coroutines, Tasks, and Futures_
+
 == Timeit ==
 TODO: Learn about timing my code
-
-== Unitest ==
-TODO learn unitest
 
 = Typescript =
 == Reactjs ==

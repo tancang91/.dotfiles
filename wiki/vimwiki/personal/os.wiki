@@ -1,14 +1,11 @@
 = Memory mapping =
 _Syntax_
 {{{c
-
 void *
 mmap(void *addr, size_t len, int prot, int flags, int fd, off_t offset);
-
 }}}
       
-_Use cases_
-    - memort mapping
-    - open file
-    - IPC
-    - Control memory protection
+_Use cases_:
+   = 1) Memory mapping 2) Open file 3) IPC 4) Control memory protection.
+
+= Mutithreading =

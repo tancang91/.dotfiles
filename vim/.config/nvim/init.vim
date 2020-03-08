@@ -58,17 +58,18 @@ set ignorecase
 set autoread
 
 colorscheme gruvbox
+" Highlight
+highlight Todo ctermbg=DarkRed 
 
 " Hightlight current line in insert-mode
 :autocmd InsertEnter * set cul 
 :autocmd InsertLeave * set nocul
 
 " ----- Key-mapping -----
-
 " -- General
 nnoremap <esc> :noh<return><esc>
 "  Insert date
-:nnoremap <silent> <F4> "=strftime("%a, %Y-%b-%d %H:%M")<CR>P
+nnoremap <silent> <F4> "=strftime("%a, %Y-%b-%d %H:%M")<CR>P
 " Copy clipboard in visual mode
 vnoremap <F5> "+y<CR>
 " Search exact match
@@ -80,29 +81,18 @@ nnoremap <silent> <A-UP> :m-2<CR>
 nnoremap <silent> <A-DOWN> :m+1<CR>
 " Escape terminal mode
 tnoremap <ESC> <C-\><C-n>
-" Highlight
-highlight Todo ctermbg=DarkRed 
-syntax keyword myTodo contained DONE XXX
-highlight def link myTodo Todo
 " -- /General
-
 " -- NerdTree
 nmap <C-n> :NERDTreeToggle<cr>
 " -- /NerdTree
-
 " -- Vimwiki
 nmap <Leader>wq <Plug>VimwikiVSplitLink
 " -- /Vimwiki
-
 "  ----- /Key-mapping
 
 " ----- Command section
 " close all buffer but working one
 command! -nargs=0 BufOnly silent! execute "%bd|e#|bd#"
-
-" Auto open nerdtree when startup
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let g:lightline = {
             \ 'colorscheme': 'simpleblack',       
@@ -112,6 +102,7 @@ let g:highlightedyank_highlight_duration = 120
 
 " -- Vimwiki
 let g:vimwiki_folding = 'syntax'
+let g:vimwiki_hl_headers=1
 
 let wiki_1 = {}
 let wiki_1.path = '~/vimwiki/personal/'
