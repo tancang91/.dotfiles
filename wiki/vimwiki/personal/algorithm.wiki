@@ -72,6 +72,24 @@ def build_dfa(pat: str):
     return dfa
 }}}
 
-== Regular expression ==
 
+= Dynamic programming =
+
+ %%From [[https://bit.ly/2Iy09r2|Erik Demaine]]
+DP problems sometimes equivalent to:
+    1. Careful brutefore.
+    2. Guessing + recursion + memoization.
+    3. Shortest path in some DAG (directly acyclic graph)
+Time = #subproblems * time/subproblems
+
+5 easy steps for DP problems.
+    1. Define subproblems. -> # subproblems
+    2. Guessing (part of solution) -> Number of choices.
+    3. Relate subproblem solutions -> Time/subproblems.
+    4. Recurrence & memoize or build DP table -> Check subproblem have DAG (have topoligical order)
+    5. Solve original problem.
+
+Note _Weighted interval scheduling_ (Algorithm book)
+%% Assume f(1) < f(2) < .. < f(n) non-decreasing sorted finish time 
+%% p(j): for interval j, to be the index i < j  such that i and j disjoint
 

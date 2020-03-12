@@ -101,5 +101,7 @@ alias vimconf="nvim ~/.config/nvim/init.vim"
 
 alias gh="~/Code/github.com/tancang91"
 alias gen="~/Code/ultis/gen.py"
+alias chrome="open -a 'google chrome'"
+alias notion="open -a 'notion'"
 
 

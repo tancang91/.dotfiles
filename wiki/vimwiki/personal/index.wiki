@@ -1,17 +1,13 @@
 = Knowledge =
 
 == Computer Science ==
-- [[os|Operating system]]
 - [[algorithm|Data structure and algorithm]]
 
 == Programming ==
 - [[pl|Programming language]]
-- [[leetcode|Leetcode]]
 
 -----------------------------------------------------------------------------------------
 = Projects =
-== Chat applications ==
-
 
 %date @created Fri, 2020-Feb-27 19:37 
 == Flaskapp ==
@@ -21,6 +17,3 @@ _Summary_:
     This project provided the foundation to build simple web application with 1) Flask framework 2) Postgres database 3) Reactjs
     This is a valuable knowledge help me build future web applications.
     
------------------------------------------------------------------------------------------
-= Goal =
-[[TODO]]
