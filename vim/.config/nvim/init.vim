@@ -24,17 +24,14 @@ call plug#begin()
     Plug 'honza/vim-snippets'"
     " Git enhanced
     Plug 'airblade/vim-gitgutter'
-    " Change date quickly
-    Plug 'tpope/vim-speeddating'
+    " Fuzzy search
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
 
-    " Metric, insight, time tracking
-    Plug 'wakatime/vim-wakatime'
     " Add build, install, etc feature
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Vim Theme
     Plug 'morhetz/gruvbox'
-    " Notetaking
-    Plug 'vimwiki/vimwiki'
 call plug#end()
 
 set encoding=UTF-8
@@ -51,6 +48,8 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set list
+set listchars=eol:¬,tab:␉·,trail:·,nbsp:⎵
 
 set hlsearch
 set smartcase
@@ -85,9 +84,10 @@ tnoremap <ESC> <C-\><C-n>
 " -- NerdTree
 nmap <C-n> :NERDTreeToggle<cr>
 " -- /NerdTree
-" -- Vimwiki
-nmap <Leader>wq <Plug>VimwikiVSplitLink
-" -- /Vimwiki
+" -- Fzf
+nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <S-f> :Files<CR>
+" -- /Fzf
 "  ----- /Key-mapping
 
 " ----- Command section
@@ -100,16 +100,6 @@ let g:lightline = {
 " Adjust yank highligh duration (vim-highlightedyank plugin)
 let g:highlightedyank_highlight_duration = 120
 
-" -- Vimwiki
-let g:vimwiki_folding = 'syntax'
-let g:vimwiki_hl_headers=1
-
-let wiki_1 = {}
-let wiki_1.path = '~/vimwiki/personal/'
-let wiki_1.html_template = '~/vimwiki/personal_html/template.tpl'
-
-let g:vimwiki_list = [wiki_1]
-" -- /Vimwiki
 " ----- /Command
 
 " ------ Cocvim setting -----------------------------
