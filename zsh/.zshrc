@@ -97,12 +97,13 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 #
 
 ### Alias land
+alias n="/usr/local/bin/ninja"
+alias p="/usr/local/bin/python3"
+
 alias zshconf="nvim ~/.zshrc"
 alias vimconf="nvim ~/.config/nvim/init.vim"
 
 alias gh="~/Code/github.com/tancang91"
 alias gen="~/Code/ultis/gen.py"
-alias chrome="open -a 'google chrome'"
-alias notion="open -a 'notion'"
 
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
