@@ -28,6 +28,8 @@ call plug#begin()
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 
+    " Latex
+    Plug 'lervag/vimtex'
     " Add build, install, etc feature
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Vim Theme
@@ -38,18 +40,21 @@ set encoding=UTF-8
 " Set leader from "\" to ","
 let mapleader=","
 
+set foldmethod=marker
 set number
 set relativenumber
 set showmatch
 set textwidth=100
 
-set smartindent
-set autoindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
 set list
-set listchars=eol:¬,tab:␉·,trail:·,nbsp:⎵
+set listchars=eol:¬,tab:␉·,trail:·
+
+set autoindent
+set smartindent
+set shiftwidth=4
+set smarttab
+set tabstop=4
+set expandtab
 
 set hlsearch
 set smartcase
@@ -66,7 +71,8 @@ highlight Todo ctermbg=DarkRed
 
 " ----- Key-mapping -----
 " -- General
-nnoremap <esc> :noh<return><esc>
+nnoremap <esc> :noh<return>
+inoremap jk <esc>
 "  Insert date
 nnoremap <silent> <F4> "=strftime("%a, %Y-%b-%d %H:%M")<CR>P
 " Copy clipboard in visual mode
@@ -86,7 +92,7 @@ nmap <C-n> :NERDTreeToggle<cr>
 " -- /NerdTree
 " -- Fzf
 nmap <leader><tab> <plug>(fzf-maps-n)
-nnoremap <S-f> :Files<CR>
+nnoremap <silent> <C-p> :Files<CR>
 " -- /Fzf
 "  ----- /Key-mapping
 
@@ -99,10 +105,9 @@ let g:lightline = {
             \ }
 " Adjust yank highligh duration (vim-highlightedyank plugin)
 let g:highlightedyank_highlight_duration = 120
-
 " ----- /Command
 
-" ------ Cocvim setting -----------------------------
+" {{{ Cocvim Setting
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -234,4 +239,4 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
+" }}}
