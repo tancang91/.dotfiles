@@ -27,18 +27,20 @@ call plug#begin()
     " Fuzzy search
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
+    " Ez align
+    Plug 'junegunn/vim-easy-align'
 
     " Latex
-    Plug 'lervag/vimtex'
+    "Plug 'lervag/vimtex'
     " Add build, install, etc feature
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Vim Theme
     Plug 'morhetz/gruvbox'
 call plug#end()
 
-set encoding=UTF-8
 " Set leader from "\" to ","
 let mapleader=","
+set encoding=UTF-8
 
 set foldmethod=marker
 set number
@@ -69,10 +71,15 @@ highlight Todo ctermbg=DarkRed
 :autocmd InsertEnter * set cul 
 :autocmd InsertLeave * set nocul
 
-" ----- Key-mapping -----
+
+" ==================== Key-mapping ====================
 " -- General
 nnoremap <esc> :noh<return>
 inoremap jk <esc>
+tnoremap jk <C-\><C-n>
+" Minimize window splits
+map <C-j> <C-W>j<C-W>_
+map <C-k> <C-W>k<C-W>_
 "  Insert date
 nnoremap <silent> <F4> "=strftime("%a, %Y-%b-%d %H:%M")<CR>P
 " Copy clipboard in visual mode
@@ -85,7 +92,6 @@ nnoremap <expr>* ':%s/\<'.expand('<cword>').'\>//gn<CR>'
 nnoremap <silent> <A-UP> :m-2<CR>
 nnoremap <silent> <A-DOWN> :m+1<CR>
 " Escape terminal mode
-tnoremap <ESC> <C-\><C-n>
 " -- /General
 " -- NerdTree
 nmap <C-n> :NERDTreeToggle<cr>
@@ -94,18 +100,27 @@ nmap <C-n> :NERDTreeToggle<cr>
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <silent> <C-p> :Files<CR>
 " -- /Fzf
-"  ----- /Key-mapping
+" -- Ez align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" -- /Ez align
 
-" ----- Command section
+
+" ==================== Autocommand ==================== 
+autocmd TermOpen * :setlocal norelativenumber nonumber
+
+
+" ==================== Command ====================
 " close all buffer but working one
 command! -nargs=0 BufOnly silent! execute "%bd|e#|bd#"
-
+"\ 'colorscheme': 'simpleblack',
 let g:lightline = {
-            \ 'colorscheme': 'simpleblack',       
+            \ 'colorscheme': 'wombat',
             \ }
 " Adjust yank highligh duration (vim-highlightedyank plugin)
 let g:highlightedyank_highlight_duration = 120
-" ----- /Command
 
 " {{{ Cocvim Setting
 " if hidden is not set, TextEdit might fail.
