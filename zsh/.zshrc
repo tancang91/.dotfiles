@@ -77,6 +77,9 @@ source $ZSH/oh-my-zsh.sh
 export PGDATA="/usr/local/var/postgres"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -105,5 +108,8 @@ alias vimconf="nvim ~/.config/nvim/init.vim"
 
 alias gh="~/Code/github.com/tancang91"
 alias gen="~/Code/ultis/gen.py"
+
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

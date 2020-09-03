@@ -30,9 +30,8 @@ call plug#begin()
     " Ez align
     Plug 'junegunn/vim-easy-align'
 
-    " Latex
     "Plug 'lervag/vimtex'
-    " Add build, install, etc feature
+    Plug 'rust-lang/rust.vim'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Vim Theme
     Plug 'morhetz/gruvbox'
