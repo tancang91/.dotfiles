@@ -10,7 +10,7 @@ call plug#begin()
     Plug 'scrooloose/nerdcommenter'
     " NERDTree showing git status flags.
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'itchyny/lightline.vim'
     " Add, edit, delete surround (bracket ....)
     Plug 'tpope/vim-surround'
@@ -62,6 +62,9 @@ set smartcase
 set ignorecase
 set autoread
 
+set splitbelow
+set splitright
+
 colorscheme gruvbox
 " Highlight
 highlight Todo ctermbg=DarkRed 
@@ -98,6 +101,8 @@ nmap <C-n> :NERDTreeToggle<cr>
 " -- Fzf
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> \ :Rg<CR>
+nnoremap <silent> <C-b> :BLines<CR>
 " -- /Fzf
 " -- Ez align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
