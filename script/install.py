@@ -32,7 +32,7 @@ class Color:
 
 def get_installed_packs(cmd: str) -> set:
     if 'brew' == cmd:
-        cmd_line = 'brew list'
+        cmd_line = 'brew list --formula'
     elif 'brew cask' == cmd:
         cmd_line = 'brew list --cask'
     else: return set()
@@ -138,12 +138,14 @@ if __name__ == '__main__':
             'node',
             'postgresql',
             'python@3.8',
+            'glow',
             'redis',
             'sqlite',
             'stow',
             'tmux',
             'tree',
             'vifm',
+            'ripgrep',
             'wget',
             'zsh',
         ]
