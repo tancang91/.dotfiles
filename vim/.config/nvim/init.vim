@@ -30,6 +30,8 @@ call plug#begin()
     " Ez align
     Plug 'junegunn/vim-easy-align'
 
+    " Toml file syntax
+    Plug 'cespare/vim-toml'
     "Plug 'lervag/vimtex'
     Plug 'rust-lang/rust.vim'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -102,7 +104,7 @@ nmap <C-n> :NERDTreeToggle<cr>
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> \ :Rg<CR>
-nnoremap <silent> <C-b> :BLines<CR>
+nnoremap <silent> <leader>b :BLines<CR>
 " -- /Fzf
 " -- Ez align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
