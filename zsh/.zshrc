@@ -76,6 +76,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 export PGDATA="/usr/local/var/postgres"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
+export JAVA_HOME=$("/usr/libexec/java_home")
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -99,6 +100,10 @@ export EDITOR="$VISUAL"
 # For a full list of active aliases, run `alias`.
 #
 
+###### PERSONAL SPACE
+# Personal util functions
+source "/Users/cangnguyen/.dotfiles/script/cn-utils.sh"
+
 ### Alias land
 alias n="/usr/local/bin/ninja"
 alias p="/usr/local/bin/python3"
@@ -108,8 +113,12 @@ alias vimconf="nvim ~/.config/nvim/init.vim"
 
 alias gh="~/Code/github.com/tancang91"
 alias gen="~/Code/ultis/gen.py"
+alias awk="gawk"
+
+alias op60="ssh -i ~/Workplaces/autobiz/offy-autobiz-key-rsa tele@51.91.219.129"
 
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f "/Users/cangnguyen/.ghcup/env" ] && source "/Users/cangnguyen/.ghcup/env" # ghcup-env
