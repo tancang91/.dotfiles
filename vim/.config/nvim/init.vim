@@ -25,7 +25,7 @@ call plug#begin()
     " Git enhanced
     Plug 'airblade/vim-gitgutter'
     " Fuzzy search
-    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     " Ez align
     Plug 'junegunn/vim-easy-align'
@@ -129,6 +129,17 @@ let g:lightline = {
 let g:highlightedyank_highlight_duration = 120
 
 " {{{ Cocvim Setting
+"
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-java',
+  \ 'coc-python',
+  \ 'coc-ultisnips',
+  \ 'coc-sh',
+  \ 'coc-markdownlint'
+  \ ]
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
