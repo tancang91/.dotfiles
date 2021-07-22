@@ -137,7 +137,7 @@ if __name__ == '__main__':
             'ninja',
             'node',
             'postgresql',
-            'python@3.8',
+            'python@3.9',
             'glow',
             'redis',
             'sqlite',

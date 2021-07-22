@@ -1,5 +1,3 @@
-readonly MY_ROOT_DIRECTORY="/Users/cangnguyen"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -79,7 +77,8 @@ source $ZSH/oh-my-zsh.sh
 export PGDATA="/usr/local/var/postgres"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export JAVA_HOME=$("/usr/libexec/java_home")
-export PATH="${MY_ROOT_DIRECTORY}/software/kafka/bin:${PATH}"
+export PATH="${HOME}/software/kafka/bin:${PATH}"
+export PATH="${HOME}/.cargo/bin:${PATH}"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -104,11 +103,10 @@ export EDITOR="$VISUAL"
 #
 
 # Personal util functions
-source "${MY_ROOT_DIRECTORY}/.dotfiles/script/cn-utils.sh"
-source "${MY_ROOT_DIRECTORY}/.dotfiles/zsh/alias.sh"
+source "${HOME}/.dotfiles/script/cn-utils.sh"
+source "${HOME}/.dotfiles/zsh/alias.sh"
 
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f "/Users/cangnguyen/.ghcup/env" ] && source "/Users/cangnguyen/.ghcup/env" # ghcup-env
