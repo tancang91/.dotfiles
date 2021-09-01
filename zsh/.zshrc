@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/cangnguyen/.oh-my-zsh"
+export ZSH="/home/cangnguyen/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -74,11 +74,11 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PGDATA="/usr/local/var/postgres"
+#export PGDATA="/usr/local/var/postgres"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
-export JAVA_HOME=$("/usr/libexec/java_home")
-export PATH="${HOME}/software/kafka/bin:${PATH}"
-export PATH="${HOME}/.cargo/bin:${PATH}"
+#export JAVA_HOME=$("/usr/libexec/java_home")
+export JAVA_HOME="/usr/lib/jvm/java-16-amazon-corretto"
+export PATH="/usr/local/go/bin:${HOME}/.cargo/bin:${PATH}"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -103,8 +103,8 @@ export EDITOR="$VISUAL"
 #
 
 # Personal util functions
-source "${HOME}/.dotfiles/script/cn-utils.sh"
-source "${HOME}/.dotfiles/zsh/alias.sh"
+source "${HOME}/dotfiles/script/cn-utils.sh"
+source "${HOME}/dotfiles/zsh/alias.sh"
 
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
