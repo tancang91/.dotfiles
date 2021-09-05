@@ -1,0 +1,50 @@
+-- install this package from the AUR to get these fonts: otf-font-awesome-5-free
+
+Config { font = "xft:Ubuntu Mono:pixelsize=13:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Font Awesome 5 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+                            ]
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#282c34"
+       , fgColor = "grey"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Weather "VVTS" ["-t","<station>: <tempC>C",
+                                          "-L","25","-H","35",
+                                          "--normal","green",
+                                          "--high","red",
+                                          "--low","#7dc2fa"] 36000
+
+                    , Run DynNetwork ["-L","102400","-H","3145728",
+                                      "--normal","green","--high","red","--low","#7dc2fa",
+                                      "-S","False",
+                                      "--template",
+                                            "<fc=#FFFF00><fn=1>\xf103</fn></fc> <rx>KB  <fc=#FFFF00><fn=1>\xf102</fn></fc> <tx>KB",
+                                      "--","--devices", "enp0s31f6"] 20
+
+                    , Run Cpu ["-L","3","-H","50",
+                               "--normal","green","--high","red"] 20
+
+                    , Run Memory ["-t","Mem: <usedratio>%"] 20
+
+                    , Run Com "uname" ["-s","-r"] "" 36000
+
+                    , Run Date "%a %d %b (%H:%M)" "date" 600
+
+                    , Run Volume "default" "Master" ["--template", "<fn=1>\xf027</fn> <volume>% <status>"] 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%cpu% | %memory% | %dynnetwork%}\
+                    \{%VVTS% | %uname% | %default:Master%| <fc=#EE9A00>%date%</fc>"
+       }

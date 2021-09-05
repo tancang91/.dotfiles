@@ -2,6 +2,8 @@ import XMonad
 import Data.Monoid
 import System.Exit
 
+import XMonad.Layout.Spacing
+import XMonad.Layout.ResizableTile
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageDocks
@@ -26,7 +28,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -48,7 +50,7 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#dddddd"
+myNormalBorderColor  = "#303030"
 myFocusedBorderColor = "#ff0000"
 
 ------------------------------------------------------------------------
@@ -128,9 +130,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
 
-    , ((0, xF86XK_AudioLowerVolume   ), spawn "amixer set Master 4-")
-    , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer set Master 4+")
+    , ((0, xF86XK_AudioLowerVolume   ), spawn "amixer set Master 3-")
+    , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer set Master 3+")
     , ((0, xF86XK_AudioMute          ), spawn "amixer -D pulse set Master toggle")
+    --, ((0, xF86XK_AudioMute          ), spawn "amixer set Master toggle")
+
+    , ((modm,               xK_a), sendMessage MirrorShrink)
+    , ((modm,               xK_z), sendMessage MirrorExpand)
     ]
     ++
 
@@ -182,10 +188,14 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts(tiled ||| Mirror tiled ||| Full)
+--
+--
+mySpacing i = spacingRaw True (Border 0 i i i) True (Border i i i i) True
+myLayout =  avoidStruts(tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
+     --tiled   = Tall nmaster delta ratio
+     tiled   = mySpacing 3 $ ResizableTall nmaster delta ratio []
 
      -- The default number of windows in the master pane
      nmaster = 1
