@@ -1,5 +1,5 @@
 ### Dotfiles repos
 
 ```shell
-$ stow .
+$ stow <folder_name>
 ```
