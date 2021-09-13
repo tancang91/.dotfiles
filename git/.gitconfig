@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-	name = cangnguyen
+	name = tancang91
 	email = tancang91@gmail.com
 [alias]
     lol = log --graph --oneline --decorate
