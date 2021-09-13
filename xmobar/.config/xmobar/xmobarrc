@@ -1,8 +1,8 @@
 -- install this package from the AUR to get these fonts: otf-font-awesome-5-free
 
 Config { font = "xft:Ubuntu Mono:pixelsize=13:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Font Awesome 5 Free Solid:pixelsize=12"
-                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+       , additionalFonts = [ "xft:Font Awesome 5 Free Solid:pixelsize=13"
+                           , "xft:Font Awesome 5 Brands:pixelsize=13"
                             ]
        , borderColor = "black"
        , border = TopB
@@ -16,17 +16,17 @@ Config { font = "xft:Ubuntu Mono:pixelsize=13:antialias=true:hinting=true"
        , pickBroadest = False
        , persistent = False
        , hideOnStart = False
-       , iconRoot = "."
+       , iconRoot     = ".xmonad/xpm/"  -- default: "."
        , allDesktops = True
        , overrideRedirect = True
        , commands = [ Run Weather "VVTS" ["-t","<station>: <tempC>C",
                                           "-L","25","-H","35",
                                           "--normal","green",
                                           "--high","red",
-                                          "--low","#7dc2fa"] 36000
+                                          "--low","#8ac8fa"] 36000
 
                     , Run DynNetwork ["-L","102400","-H","3145728",
-                                      "--normal","green","--high","red","--low","#7dc2fa",
+                                      "--normal","green","--high","red","--low","#8ac8fa",
                                       "-S","False",
                                       "--template",
                                             "<fc=#FFFF00><fn=1>\xf103</fn></fc> <rx>KB  <fc=#FFFF00><fn=1>\xf102</fn></fc> <tx>KB",
@@ -35,16 +35,17 @@ Config { font = "xft:Ubuntu Mono:pixelsize=13:antialias=true:hinting=true"
                     , Run Cpu ["-L","3","-H","50",
                                "--normal","green","--high","red"] 20
 
-                    , Run Memory ["-t","Mem: <usedratio>%"] 20
-
-                    , Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Memory ["-L","0","-H","70","-t","Mem: <usedratio>%",
+                                "--normal","green","--high","red"] 20
 
                     , Run Date "%a %d %b (%H:%M)" "date" 600
 
-                    , Run Volume "default" "Master" ["--template", "<fn=1>\xf027</fn> <volume>% <status>"] 10
+                    , Run Alsa "default" "Master" ["-t", "<fn=1>\xf027</fn> <volume>% <status>"]
+
+                    , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% | %dynnetwork%}\
-                    \{%VVTS% | %uname% | %default:Master%| <fc=#EE9A00>%date%</fc>"
+       , template = "<icon=haskell_20.xpm/>  %StdinReader%}\
+                    \{%cpu% | %memory% | %dynnetwork% | %alsa:default:Master%| %VVTS% | <fc=#ffa7b6>%date%</fc>"
        }

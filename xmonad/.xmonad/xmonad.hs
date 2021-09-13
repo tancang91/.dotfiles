@@ -2,6 +2,8 @@ import XMonad
 import Data.Monoid
 import System.Exit
 
+
+import XMonad.Hooks.DynamicLog
 import XMonad.Layout.Spacing
 import XMonad.Layout.ResizableTile
 import XMonad.Hooks.DynamicLog
@@ -245,6 +247,13 @@ myEventHook = mempty
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
 myLogHook = return ()
+myLogHook' h = dynamicLogWithPP $ def {
+    ppLayout = const ""
+    , ppTitleSanitize = const ""  -- Also about window's title
+    , ppVisible = wrap "(" ")"  -- Non-focused (but still visible) screen
+    , ppCurrent = wrap "<fc=#ffe8be,#004aad> " " </fc>"-- Non-focused (but still visible) screen
+    , ppOutput = hPutStrLn h
+}
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -264,7 +273,8 @@ myStartupHook = return ()
 main = do 
     xmproc <- spawnPipe "xmobar -x 0 /home/cangnguyen/.config/xmobar/xmobarrc"
     xmonad $ docks defaults {
-        startupHook = setWMName "LG3D" 
+        startupHook = setWMName "LG3D",
+        logHook     = myLogHook' xmproc
     }
 
 -- A structure containing your configuration settings, overriding
