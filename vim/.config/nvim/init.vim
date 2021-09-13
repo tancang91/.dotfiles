@@ -30,6 +30,7 @@ call plug#begin()
     " Ez align
     Plug 'junegunn/vim-easy-align'
 
+    Plug 'neovimhaskell/haskell-vim'
     " Toml file syntax
     Plug 'cespare/vim-toml'
     "Plug 'lervag/vimtex'
@@ -121,10 +122,24 @@ autocmd TermOpen * :setlocal norelativenumber nonumber
 " ==================== Command ====================
 " close all buffer but working one
 command! -nargs=0 BufOnly silent! execute "%bd|e#|bd#"
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
 "\ 'colorscheme': 'simpleblack',
 let g:lightline = {
-            \ 'colorscheme': 'wombat',
-            \ }
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
+
 " Adjust yank highligh duration (vim-highlightedyank plugin)
 let g:highlightedyank_highlight_duration = 120
 
