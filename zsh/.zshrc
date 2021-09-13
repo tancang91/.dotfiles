@@ -1,3 +1,12 @@
+neofetch
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -7,7 +16,7 @@ export ZSH="/home/cangnguyen/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,8 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-#export PGDATA="/usr/local/var/postgres"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
+export PGDATA="/var/lib/postgres"
 #export JAVA_HOME=$("/usr/libexec/java_home")
 export JAVA_HOME="/usr/lib/jvm/java-16-amazon-corretto"
 export PATH="/usr/local/go/bin:${HOME}/.cargo/bin:${PATH}"
@@ -109,4 +118,8 @@ source "${HOME}/dotfiles/zsh/alias.sh"
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+[[ -f ~/.ghcup/env ]] && source ~/.ghcup/env
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
