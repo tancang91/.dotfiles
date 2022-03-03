@@ -132,10 +132,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
 
-    , ((0, xF86XK_AudioLowerVolume   ), spawn "amixer set Master 3-")
-    , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer set Master 3+")
-    , ((0, xF86XK_AudioMute          ), spawn "amixer -D pulse set Master toggle")
-    --, ((0, xF86XK_AudioMute          ), spawn "amixer set Master toggle")
+    , ((0, xF86XK_AudioLowerVolume   ), spawn "amixer set Master 3%-")
+    , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer set Master 3%+")
+    , ((0, xF86XK_AudioMute          ), spawn "amixer set Master toggle")
+    --, ((0, xF86XK_AudioLowerVolume   ), spawn "amixer -D pulse sset Master 3%-")
+    --, ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer -D pulse sset Master 3%+")
+    --, ((0, xF86XK_AudioMute          ), spawn "amixer -D pulse set Master toggle")
 
     , ((modm,               xK_a), sendMessage MirrorShrink)
     , ((modm,               xK_z), sendMessage MirrorExpand)

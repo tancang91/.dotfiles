@@ -3,11 +3,10 @@
 ### Alias land
 alias n="/usr/bin/ninja"
 alias p="/usr/bin/python3"
-alias intellij-idea-ultimate='intellij-idea-ultimate > /dev/null 2>&1 &disown'
 alias qbittorrent='qbittorrent > /dev/null 2>&1 &disown'
-alias firefox='firefox > /dev/null 2>&1 &disown'
 alias steam="steam > /dev/null 2>&1 &disown"
-alias intellij="${HOME}/software/idea-IU-212.5080.55/bin/idea.sh > /dev/null 2>&1 &disown"
+alias idea="/opt/idea-IU-211.7628.21/bin/idea.sh > /dev/null 2>&1 &disown"
+alias postman="/opt/Postman/Postman > /dev/null 2>&1 &disown"
 alias word="wps > /dev/null 2>&1 &disown"
 alias excel="et > /dev/null 2>&1 &disown"
 alias powerpoint="wpp > /dev/null 2>&1 &disown"

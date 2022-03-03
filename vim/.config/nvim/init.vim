@@ -29,6 +29,7 @@ call plug#begin()
     Plug 'junegunn/fzf.vim'
     " Ez align
     Plug 'junegunn/vim-easy-align'
+    "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     Plug 'neovimhaskell/haskell-vim'
     " Toml file syntax
@@ -69,8 +70,11 @@ set splitbelow
 set splitright
 
 colorscheme gruvbox
+" Make background transparent
+"hi Normal ctermbg=NONE guibg=NONE
+
 " Highlight
-highlight Todo ctermbg=DarkRed 
+highlight Todo ctermbg=DarkRed
 
 " Hightlight current line in insert-mode
 :autocmd InsertEnter * set cul 

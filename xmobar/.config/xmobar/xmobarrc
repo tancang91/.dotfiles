@@ -46,6 +46,6 @@ Config { font = "xft:Ubuntu Mono:pixelsize=13:antialias=true:hinting=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<icon=haskell_20.xpm/>  %StdinReader%}\
+       , template = "<icon=haskell_20.xpm/>  %StdinReader% }\
                     \{%cpu% | %memory% | %dynnetwork% | %alsa:default:Master%| %VVTS% | <fc=#ffa7b6>%date%</fc>"
        }
