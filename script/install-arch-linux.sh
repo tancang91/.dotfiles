@@ -20,6 +20,7 @@ app_packages=(
     'ranger'
     'exa'
     'bat'
+    'git-delta'
 )
 
 function alacritty_install {
