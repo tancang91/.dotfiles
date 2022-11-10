@@ -1,14 +1,35 @@
 # This is Git's per-user configuration file.
 [user]
-	name = tancang91
-	email = tancang91@gmail.com
+    name = tancang91
+    email = tancang91@gmail.com
+
 [alias]
     lol = log --graph --oneline --decorate
     lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-
     cf =  diff-tree --name-status -r
+
 [pager]
-	branch = false
+    branch = false
     lol = false
     lg1 = false
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[add.interactive]
+    useBuiltin = false
+
+[delta]
+    navigate = true
+    light = false
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

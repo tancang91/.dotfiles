@@ -31,6 +31,10 @@ call plug#begin()
     Plug 'junegunn/vim-easy-align'
     "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+    Plug 'pangloss/vim-javascript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'peitalin/vim-jsx-typescript'
+    Plug 'maxmellon/vim-jsx-pretty'
     Plug 'neovimhaskell/haskell-vim'
     " Toml file syntax
     Plug 'cespare/vim-toml'
@@ -147,13 +151,16 @@ let g:lightline = {
 " Adjust yank highligh duration (vim-highlightedyank plugin)
 let g:highlightedyank_highlight_duration = 120
 
+" Set :grep to ripgrep
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+
 " {{{ Cocvim Setting
 "
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-java',
-  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-ultisnips',
   \ 'coc-sh',
   \ 'coc-markdownlint'
