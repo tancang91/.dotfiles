@@ -25,3 +25,6 @@ alias aliasconf="nvim ${HOME}/dotfiles/zsh/alias.sh"
 alias zshconf="nvim ${HOME}/.zshrc"
 alias gitconf="nvim ${HOME}/.gitconfig"
 alias vimconf="nvim ${HOME}/.config/nvim/init.vim"
+
+# Pacman
+alias pac-remove='pacman -R $(pacman -Qdtq)'

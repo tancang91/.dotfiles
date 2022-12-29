@@ -3,6 +3,7 @@ import Data.Monoid
 import System.Exit
 
 
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.Spacing
 import XMonad.Layout.ResizableTile
@@ -274,7 +275,7 @@ myStartupHook = return ()
 --
 main = do 
     xmproc <- spawnPipe "xmobar -x 0 /home/cangnguyen/.config/xmobar/xmobarrc"
-    xmonad $ docks defaults {
+    xmonad $ ewmhFullscreen . ewmh $ docks defaults {
         startupHook = setWMName "LG3D",
         logHook     = myLogHook' xmproc
     }
