@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+current_dir=$(pwd)
+config_dir="${HOME}/.config/nvim"
+
+if [[ ! -L "${config_dir}" ]]; then
+    ln -s "${current_dir}/neovim" "${config_dir}"
+fi
+
+echo '--- Create symlink for nvim config...done'
