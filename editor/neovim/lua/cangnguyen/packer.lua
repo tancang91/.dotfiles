@@ -5,7 +5,7 @@ vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use("wbthomason/packer.nvim")
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -47,5 +47,10 @@ return require('packer').startup(function(use)
     -- Amazing commentter
     use('preservim/nerdcommenter')
     use('itchyny/lightline.vim')
+    use{
+        'lvimuser/lsp-inlayhints.nvim',
+        config = function() require("lsp-inlayhints").setup() end
+    }
+
 end)
 
