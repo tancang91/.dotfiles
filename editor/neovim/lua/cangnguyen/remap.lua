@@ -1,7 +1,7 @@
 vim.g.mapleader = ","
 
 -- Normal mode
-vim.keymap.set("n", "<esc>", ":noh<CR><CR>")
+vim.keymap.set("n", "<esc>", ":noh<CR>")
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- Insertion mode
 vim.keymap.set("i", "jk", "<esc>")
