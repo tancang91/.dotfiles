@@ -47,7 +47,10 @@ return require('packer').startup(function(use)
     use('airblade/vim-gitgutter')
     -- Amazing commentter
     use('preservim/nerdcommenter')
-    use('itchyny/lightline.vim')
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     use{
         'lvimuser/lsp-inlayhints.nvim',
         config = function() require("lsp-inlayhints").setup() end
