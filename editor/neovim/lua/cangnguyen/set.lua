@@ -19,3 +19,5 @@ vim.opt.updatetime = 50
 
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
+
+vim.opt.foldmethod = "marker"
