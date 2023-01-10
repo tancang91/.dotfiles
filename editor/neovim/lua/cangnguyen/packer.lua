@@ -56,5 +56,7 @@ return require('packer').startup(function(use)
         config = function() require("lsp-inlayhints").setup() end
     }
 
+    -- Standalone UI for nvim-lsp progress
+    use('j-hui/fidget.nvim')
 end)
 
