@@ -86,9 +86,8 @@ source $ZSH/oh-my-zsh.sh
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_DEFAULT_COMMAND="rg --files --follow --no-ignore-vcs -g '!{**/venv,**/__pycache__,**/target}'"
 export PGDATA="/var/lib/postgres"
-#export JAVA_HOME=$("/usr/libexec/java_home")
 export JAVA_HOME="/usr/lib/jvm/java-16-amazon-corretto"
-export PATH="/usr/local/go/bin:${HOME}/.cargo/bin:${PATH}:${HOME}/.local/bin"
+export PATH="/usr/local/go/bin:${HOME}/.cargo/bin:${PATH}"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
