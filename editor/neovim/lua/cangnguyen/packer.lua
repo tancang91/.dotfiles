@@ -51,10 +51,7 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    use{
-        'lvimuser/lsp-inlayhints.nvim',
-        config = function() require("lsp-inlayhints").setup() end
-    }
+    use('lvimuser/lsp-inlayhints.nvim')
 
     -- Standalone UI for nvim-lsp progress
     use('j-hui/fidget.nvim')
