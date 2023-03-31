@@ -55,5 +55,8 @@ return require('packer').startup(function(use)
 
     -- Standalone UI for nvim-lsp progress
     use('j-hui/fidget.nvim')
+
+    -- Java config
+    use('mfussenegger/nvim-jdtls')
 end)
 
