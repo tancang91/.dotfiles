@@ -11,7 +11,7 @@ lsp.ensure_installed({
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -126,7 +126,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             only_current_line = false,
             -- separator between types and parameter hints. Note that type hints are
             -- shown before parameter
-            labels_separator = "  ",
+            labels_separator = " ",
             -- whether to align to the length of the longest line in the file
             max_len_align = false,
             -- padding from the left if max_len_align is true
