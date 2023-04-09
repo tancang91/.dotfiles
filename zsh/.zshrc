@@ -86,8 +86,10 @@ source $ZSH/oh-my-zsh.sh
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export FZF_DEFAULT_COMMAND="rg --files --follow --no-ignore-vcs -g '!{**/venv,**/__pycache__,**/target}'"
 export PGDATA="/var/lib/postgres"
-export JAVA_HOME="/usr/lib/jvm/default"
 export PATH="${HOME}/.cargo/bin:${HOME}/dotfiles/bin:${HOME}/.local/bin:${PATH}"
+
+export JAVA_HOME="/usr/lib/jvm/default"
+export JDTLS_JVM_ARGS="-javaagent:${HOME}/.local/share/nvim/mason/packages/jdtls/lombok.jar"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
