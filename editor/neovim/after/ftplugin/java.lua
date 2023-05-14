@@ -21,7 +21,10 @@ local config = {
         '--add-modules=ALL-SYSTEM',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+
         '-javaagent:' .. lombok_path,
+        '-Xbootclasspath/a:' .. lombok_path,
+
         '-jar', LSP_PATH_ROOT .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         '-configuration', jdtls_config_path,
         '-data', home .. '/.local/share/nvim/java'
@@ -29,7 +32,7 @@ local config = {
     -- 💀
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
-    root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew' }),
+    root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', "build.gradle" }),
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options

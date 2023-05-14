@@ -1,6 +1,6 @@
 -- install this package from the AUR to get these fonts: otf-font-awesome-5-free
 
-Config { font = "Ubuntu Mono Medium 9"
+Config { font = "Ubuntu Mono Medium 10"
        , additionalFonts = [ "Font Awesome 6 Free Solid 10"
                            , "Font Awesome 6 Brands 10"
                             ]
