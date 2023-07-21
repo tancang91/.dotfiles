@@ -94,7 +94,7 @@ export JDTLS_JVM_ARGS="-javaagent:${HOME}/.local/share/nvim/mason/packages/jdtls
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-export MEDIA_SERVER="/data/media-server"
+export MEDIA_SERVER="/media-server"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -127,3 +127,4 @@ bindkey "\e\e[C" forward-word
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fpath+=${ZDOTDIR:-~}/.zsh_functions

@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use("wbthomason/packer.nvim")
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.2',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
@@ -54,7 +54,7 @@ return require('packer').startup(function(use)
     use('lvimuser/lsp-inlayhints.nvim')
 
     -- Standalone UI for nvim-lsp progress
-    use('j-hui/fidget.nvim')
+    use{'j-hui/fidget.nvim', tag = "legacy"}
 
     -- Java config
     use('mfussenegger/nvim-jdtls')
