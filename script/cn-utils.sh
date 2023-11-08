@@ -1,11 +1,4 @@
 #/usr/bin/env bash
+local script_dir="${HOME}/dotfiles/script"
 
-function cnvi {
-    local dir=$1
-    if [[ -d "${dir}" ]]; then
-        nvim $(find ${dir} -type f | fzf)
-    else
-        nvim $(fzf)
-    fi
-}
-
+source ${script_dir}/cn-jav.sh
