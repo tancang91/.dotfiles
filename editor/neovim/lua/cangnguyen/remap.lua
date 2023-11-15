@@ -22,6 +22,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- Greate remapping ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("i", "jk", "<esc>")
+vim.keymap.set("t", "jk", "<C-\\><C-n>")
 vim.keymap.set("n", "<esc>", ":noh<CR>")
 
 -- Hightlight, then move up and down
