@@ -1,8 +1,12 @@
-require('fidget').setup {
-    text = {
-        spinner = "pipe", -- animation shown when tasks are ongoing
-        done = "✔", -- character shown when all tasks are complete
-        commenced = "Started", -- message shown when task starts
-        completed = "Completed", -- message shown when task completes
+require("fidget").setup {
+    progress = {
+        display = {
+            progress_icon =
+            { pattern = "pipe", period = 1 },
+        },
     },
+    logger = {
+        level = vim.log.levels.INFO,
+    }
 }
+
