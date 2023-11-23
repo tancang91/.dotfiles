@@ -10,6 +10,13 @@ autocmd("InsertLeave", {
   pattern = "*",
   callback = function() vim.opt.cursorline = false end,
 })
+autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.relativenumber = false
+    vim.opt_local.number = false
+  end,
+})
 
 -- Yank hightlight
 local yank_group = augroup('HighlightYank', {})
