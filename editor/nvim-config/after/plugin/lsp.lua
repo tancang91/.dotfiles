@@ -4,12 +4,12 @@ lsp.preset("recommended")
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'jdtls',
-      'lua_ls',
-      'pyright',
-      'rust_analyzer',
-      'eslint',
-      'tsserver',
+    ensure_installed = { 'jdtls',
+        'lua_ls',
+        'pyright',
+        'rust_analyzer',
+        'eslint',
+        'tsserver',
     },
     handlers = {
         lsp.default_setup,
@@ -25,37 +25,38 @@ require('mason-lspconfig').setup({
             }
             require('lspconfig').lua_ls.setup(lua_opts)
         end,
+
+        rust_analyzer = function()
+            local opts = {
+                settings = {
+                    ["rust-analyzer"] = {
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
+                        cargo = {
+                            buildScripts = {
+                                enable = true,
+                            },
+                        },
+                        procMacro = {
+                            enable = true
+                        },
+                        inlayHints = {
+                            enabled = true,
+                            typeHints = {
+                                enable = true,
+                            },
+                        },
+                    }
+                }
+            }
+            require('lspconfig').rust_analyzer.setup(opts)
+        end
     }
 })
-
-
-lsp.configure("rust_analyzer", {
-    settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-            inlayHints = {
-                enabled = true,
-                typeHints = {
-                    enable = true,
-                },
-            },
-        }
-    }
-})
-
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -86,70 +87,70 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+    local opts = { buffer = bufnr, remap = false }
 
-  if client.name == "eslint" then
-      vim.cmd.LspStop('eslint')
-      return
-  end
+    if client.name == "eslint" then
+        vim.cmd.LspStop('eslint')
+        return
+    end
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-  vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
-  vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
+    vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = "LspAttach_inlayhints",
-  callback = function(args)
-    if not (args.data and args.data.client_id) then
-      return
-    end
+    group = "LspAttach_inlayhints",
+    callback = function(args)
+        if not (args.data and args.data.client_id) then
+            return
+        end
 
-    local bufnr = args.buf
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    require("lsp-inlayhints").setup({
-        inlay_hints = {
-            parameter_hints = {
-                show = true,
-                prefix = "<- ",
-                separator = ", ",
-                remove_colon_start = false,
-                remove_colon_end = true,
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        require("lsp-inlayhints").setup({
+            inlay_hints = {
+                parameter_hints = {
+                    show = true,
+                    prefix = "<- ",
+                    separator = ", ",
+                    remove_colon_start = false,
+                    remove_colon_end = true,
+                },
+                type_hints = {
+                    -- type and other hints
+                    show = true,
+                    prefix = "",
+                    separator = " ",
+                    remove_colon_start = false,
+                    remove_colon_end = false,
+                },
+                only_current_line = false,
+                -- separator between types and parameter hints. Note that type hints are
+                -- shown before parameter
+                labels_separator = " ",
+                -- whether to align to the length of the longest line in the file
+                max_len_align = false,
+                -- padding from the left if max_len_align is true
+                max_len_align_padding = 1,
+                -- highlight group
+                highlight = "LspInlayHint",
+                -- virt_text priority
+                priority = 0,
             },
-            type_hints = {
-                -- type and other hints
-                show = true,
-                prefix = "",
-                separator = " ",
-                remove_colon_start = false,
-                remove_colon_end = false,
-            },
-            only_current_line = false,
-            -- separator between types and parameter hints. Note that type hints are
-            -- shown before parameter
-            labels_separator = " ",
-            -- whether to align to the length of the longest line in the file
-            max_len_align = false,
-            -- padding from the left if max_len_align is true
-            max_len_align_padding = 1,
-            -- highlight group
-            highlight = "LspInlayHint",
-            -- virt_text priority
-            priority = 0,
-        },
-        enabled_at_startup = true,
-        debug_mode = false,
-    })
-    require("lsp-inlayhints").on_attach(client, bufnr)
-  end,
+            enabled_at_startup = true,
+            debug_mode = false,
+        })
+        require("lsp-inlayhints").on_attach(client, bufnr)
+    end,
 })
 
 lsp.setup()
