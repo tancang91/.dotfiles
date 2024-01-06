@@ -29,9 +29,10 @@ require('lazy').setup({
     { 'airblade/vim-gitgutter' },
     -- Amazing commentter
     { 'preservim/nerdcommenter' },
+
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
+        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
     },
 
     { 'lvimuser/lsp-inlayhints.nvim' },
