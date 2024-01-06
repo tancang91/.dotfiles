@@ -21,3 +21,7 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 
 vim.opt.foldmethod = "marker"
+
+if vim.g.neovide then
+    vim.o.guifont = "Hack Nerd Font:h10"
+end

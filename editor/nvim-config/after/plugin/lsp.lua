@@ -4,11 +4,12 @@ lsp.preset("recommended")
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'jdtls',
+    ensure_installed = {
+        'eslint',
+        'jdtls',
         'lua_ls',
         'pyright',
         'rust_analyzer',
-        'eslint',
         'tsserver',
     },
     handlers = {
