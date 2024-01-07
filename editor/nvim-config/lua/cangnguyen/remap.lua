@@ -18,6 +18,7 @@ vim.keymap.set("n", "<C-j>", "<C-W>j<C-W>_")
 
 -- Copy to clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
 
 -- Greate remapping ever
 vim.keymap.set("x", "<leader>p", [["_dP]])

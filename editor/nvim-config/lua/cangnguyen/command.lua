@@ -1,6 +1,7 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
+
 -- Highlight when entering the Insert mode
 autocmd("InsertEnter", {
   pattern = "*",
@@ -31,3 +32,7 @@ autocmd('TextYankPost', {
     end,
 })
 
+
+if vim.g.neovide then
+    vim.cmd([[highlight Normal guibg=#242424]])
+end
