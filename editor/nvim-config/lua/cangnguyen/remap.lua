@@ -1,7 +1,5 @@
 vim.g.mapleader = ","
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 -- Keep cursor at middle
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -18,10 +16,10 @@ vim.keymap.set("n", "<C-j>", "<C-W>j<C-W>_")
 
 -- Copy to clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+vim.keymap.set({ "n", "v" }, "<leader>pp", [["+p]])
 
 -- Greate remapping ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>pv", [["_dP]])
 vim.keymap.set("i", "jk", "<esc>")
 vim.keymap.set("t", "jk", "<C-\\><C-n>")
 vim.keymap.set("n", "<esc>", ":noh<CR>")

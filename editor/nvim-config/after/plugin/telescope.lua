@@ -9,11 +9,13 @@ end)
 require('telescope').setup {
     defaults = {
         file_ignore_patterns = {
+            ".venv/",
             "__pycache__/",
-            "node_modules/",
             "bin/",
             "build/",
+            "node_modules/",
             "target/",
+            "venv/",
         },
         mappings = {
             i = {
