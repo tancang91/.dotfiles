@@ -19,8 +19,13 @@ require('telescope').setup {
         },
         mappings = {
             i = {
-                ["<esc>"] = actions.close
+                ["<esc>"] = actions.close,
             }
         }
-    }
+    },
+    pickers = {
+        find_files = {
+            find_command = { "fd", "--type", "f", "--size", "-100Kb", "--strip-cwd-prefix" },
+        },
+    },
 }
