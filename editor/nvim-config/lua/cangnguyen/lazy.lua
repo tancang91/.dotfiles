@@ -26,7 +26,7 @@ require('lazy').setup({
         config = function() require("nvim-autopairs").setup {} end
     },
 
-    { 'airblade/vim-gitgutter' },
+    { 'lewis6991/gitsigns.nvim' },
     -- Amazing commentter
     { 'preservim/nerdcommenter' },
 
