@@ -43,6 +43,10 @@ require('lazy').setup({
     -- Java config
     { 'mfussenegger/nvim-jdtls' },
 
+    -- Nvim DAP
+    { 'mfussenegger/nvim-dap' },
+    { 'rcarriga/nvim-dap-ui' },
+
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
