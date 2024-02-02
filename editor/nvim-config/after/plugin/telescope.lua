@@ -21,11 +21,11 @@ require('telescope').setup {
             i = {
                 ["<esc>"] = actions.close,
             }
-        }
+        },
     },
     pickers = {
         find_files = {
-            find_command = { "fd", "--type", "f", "--size", "-100Kb", "--strip-cwd-prefix" },
+            find_command = { "fd", "--type", "f", "--size", "-10Kb", "--strip-cwd-prefix" },
         },
     },
 }
