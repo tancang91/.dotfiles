@@ -43,6 +43,9 @@ require('lazy').setup({
     -- Java config
     { 'mfussenegger/nvim-jdtls' },
 
+    -- Nvim DAP
+    { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
